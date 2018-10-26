@@ -1,0 +1,167 @@
+//Testeo unitario automatizado
+
+//Describe 
+//Identificamos a un conjunto de tests con la palabra reservada describe
+//y un nombre expresivo con el cual lo identificamos. Al igual que los
+//objetos y las clases, se utilizan { } para delimitar el inicio y fin
+//de de la presente entidad, agrupando a todos los tests que forman parte de ella.  
+
+//Test
+//Dentro del describe, cada test se define de la siguiente manera:
+//Cada uno comienza con la palabra reservada:	test
+//seguido de una cadena de caracteres entre comillas que
+//explique lo que se está probando.
+
+//Es importante hacer una buena descripción porque esa misma
+//leyenda es la que va a aparecer en el informe de errores,
+//y cuando el test falle nos va a permitir detectar más fácilmente
+//cuál fue el problema.
+
+//Se usan { } para marcar el inicio y fin del test, de igual
+//manera que los métodos. En las primeras líneas, salvo
+//tests muy sencillos, generalmente es necesario enviar los
+//mensajes que van configurando la situación
+//a probar. Es lo que en los casos de pruebas denominamos "acciones".
+
+//Por último se le envía un mensaje al objeto:	assert
+//para realizar concretamente la prueba, contrastando lo que se que se quiere
+//probar con lo que se espera. Es lo que en los casos de prueba
+//titulamos "validación".
+
+//Hay básicamente tres alternativas:
+//El mensaje típico es:		equals
+//con dos parámetros: en primer lugar va el valor que se espera que retorne
+//el mensaje que va en segundo lugar.
+//Se lo puede ver en la mayor parte de los tests.
+
+//En los casos donde se espera que la respuesta sea true, se le envía
+//el mensaje that, con un único parámetro que es el mensaje booleano
+//que se espera que se valide afirmativamente.
+
+//En forma análoga, existe un mensaje notThat que testea que no se
+//verifique el mensaje booleano. Se lo puede ver en el último de los tests.
+
+//En los primeros dos tests, como se trata de probar mensajes que
+//tienen valor de retorno y parten de la situación inicial, no hizo
+//falta enviar mensajes previo al assert. Del tercero al último se
+//busca probar que funcionen adecuadamente métodos con efecto como
+//volar o comer, se envían primero dichos mensajes y luego el
+//mensaje que se coloca en el assert es uno muy sencillo que
+//se limita a exhibir el efecto causado. Los últimos 2 tests
+//son similares en su estructura, aunque lo que se desee probar
+//sea el mensaje que va en el assert.
+
+//Se tiende a colocar un solo assert por test. En otras palabras,
+//conviene más hacer 10 tests con un assert específico y no 1 test
+//con 10 asserts: la razón es que cuando el primer assert no se
+//cumple no se evalúan los asserts siguientes. Además con cada
+//test tenemos una pila de ejecución diferente, y si hay errores
+//diferentes los podemos identificar.
+
+//También es válido tener tests "sueltos", sin declarar el describe,
+//pero lo que se estila y recomienda es agruparlos por su coincidencia
+//en cuanto a los objetos que utilizan. Más adelante explicaremos otras
+//características que refuerzan la idea de agrupar los test.
+//Si se necesita tener varios describe, cada uno con su propio conjunto
+//de tests, -lo cual es recomendable para soluciones de mayor extensión-
+//se los define en archivos diferentes. No es válido tener más de un
+//describe por archivo.
+
+
+//OBJETO assert
+//basicamente significa "afirmar"
+
+//equals (expected, actual)
+//assert.equals significa "afirmar que son iguales"
+
+//EJEMPLO
+//assert.equals(10, 100.div(10))	==> ok, nothing happens
+//assert.equals(10.0, 100.div(10))	==> ok, nothing happens
+//assert.equals(10.01, 100.div(10))	==> EL TESTEO FALLA.
+
+//notEquals(expected, actual)
+//assert.notEquals significa "afirmar que no son iguales"
+
+//EJEMPLO
+//const value = 5
+//assert.notEquals(10, value * 3)	==> ok, nothing happens
+//assert.notEquals(10, value)		==> EL TESTEO FALLA.
+
+//that(value)
+//assert.that significa "afirmar que es verdad"
+
+//notThat (value)
+//assert.notThat significa "afirmar que no es verdad
+
+//EJEMPLO
+//assert.notThat(7.even())			==> ok, nothing happens
+//assert.that(8.even())				==> ok, nothing happens
+
+//para que encuentre todos los archivos de nombre "example"
+//sin importar la extension"
+import example.*
+
+//o bien, import example.wlk
+describe "MI PRIMER TEST DE APRENDIENDO OBJETOS CON WOLLOK"
+{	//ahora comenzamos a dejar volar nuestra imaginacion
+	//e inventamos test para jugar y aprender.
+	
+	test "test1, AmbosCero con par1 = 0 y par2 = 0"
+	{	//afirmar que true y el retorno de comparar 0 con 0
+		//son efectivamente iguales. en este caso lo son.
+		assert.equals(true, miObjeto.AmbosCero(0,0))
+	}
+	test "test2, AmbosCero con par1 = 0 y par2 = 1"
+	{	//afirmar que false y el retorno de comparar 0 con 1
+		//son efectivamente iguales. en este caso lo son.
+		//pues se reestructura el equals para que no falle.
+		//AmbosCero retornara false, y false es igual que false.
+		assert.equals(false, miObjeto.AmbosCero(0,1))
+	}
+	test "test3, AmbosCero con condiccion estricta"
+	{	//este test es igual al primero
+		//en este caso, el metodo retornara true en ambos parametros
+		assert.equals(miObjeto.AmbosCero(0,0), miObjeto.AmbosCero(0,0))
+	}
+	test "test4, AmbosCero con condiccion estricta"
+	{	//este test es igual al segundo
+		//en este caso, el metodo retornara false en ambos parametros
+		assert.equals(miObjeto.AmbosCero(0,1), miObjeto.AmbosCero(0,1))
+	}
+	test "test5, 2 y mi variable por defecto, no son iguales"
+	{
+		assert.notEquals(2, miObjeto.MostrarMiVar())
+	}
+	test "test6, 0 y mi variable por defecto, son iguales"
+	{
+		assert.equals(0, miObjeto.MostrarMiVar())
+	}
+	test "test7, 1 y mi variable actualizada a 1, son iguales"
+	{	miObjeto.UpdateMiVar(1)
+		assert.equals(1, miObjeto.MostrarMiVar())
+	}
+	test "test8, mi constante y mi variable por defecto son iguales"
+	{
+		assert.equals(true, miObjeto.SonVerdad())
+	}
+	test "test9, mi const bool y mi var bool por defecto son verdad"
+	{	assert.equals(true, miObjeto.SonVerdad())
+	}
+	test "test10, mi const bool y mi var bool actualizada a false no son verdad"
+	{	miObjeto.UpdateMiBool(false)
+		assert.notEquals(true, miObjeto.SonVerdad())
+	}
+	test "test11, afirmo que mi const bool y mi var bool por defecto son verdad"
+	{
+		assert.that(miObjeto.SonVerdad())
+	}
+	test "test12, afirmo que mi const bool y mi var bool actualisada a false no son verdad"
+	{	miObjeto.UpdateMiBool(false)
+		assert.notThat(miObjeto.SonVerdad())
+	}
+}
+
+
+
+
+
