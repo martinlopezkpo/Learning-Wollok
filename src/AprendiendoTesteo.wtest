@@ -98,7 +98,7 @@
 
 //para que encuentre todos los archivos de nombre "example"
 //sin importar la extension"
-import example.*
+import Aprendiendo.*
 
 //o bien, import example.wlk
 describe "MI PRIMER TEST DE APRENDIENDO OBJETOS CON WOLLOK"
