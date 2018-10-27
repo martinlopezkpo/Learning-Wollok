@@ -1,5 +1,6 @@
 //construccion de un objeto
 object miObjeto{
+	
 	//definicio de variable:
 	//Una variable es una referencia cuyo valor puede
 	//cambiar en cualquier momento. Lo que cambia no es
