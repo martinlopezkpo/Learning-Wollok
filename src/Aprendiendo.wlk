@@ -79,137 +79,57 @@ object unaFecha{
 	const hoy = new Date()
 	const unDiaCualquiera = new Date(30, 6, 1973)
 	
+	method restarFecha(f1, f2)
+	{	return f1 - f2
+	}//retorna la diferencia en dias, de dos fechas.
 
-- (_aDate) native
-Answers the difference in days between two dates, assuming self is minuend and _aDate is subtrahend.
+	method fechasIguales(f1, f2){
+		return f1 == f2
+	}//igualdad de fechas
+	method fechaEntreDosFechas(f1, f2, f3){
+		return f1.between(f2, f3)
+	}//una fecha entre intervalo de fechas
+	method diaDeLaSemana(f){
+		return f.dayOfWeek()
+	}//retorna el dia de la semana q corresponde al dia de la fecha... 1(lunes) a 7(sabado)
+	method esBisiesto(f){
+		return f.isLeapYear()
+	}//verifica si es año bisiesto
+	
+	method minusFechaD(f, val){
+		f.minusDays(val)
+	}
+	method minusFechaM(f, val){
+		f.minusMonths (val)
+	}
+	method minusFechaA(f, val){
+		f.minusYears(val)
+	}
 
-Examples:
-new Date().plusDays(4) - new Date() ==> Answers 4
-new Date() - new Date().plusDays(2) ==> Answers -2
-< (_aDate) native
-<= (_aDate)	
-== (_aDate) native
-Two dates are equals if they represent the same date
-> (_aDate) native
->= (_aDate)	
-between (_startDate, _endDate)	Answers whether self is between two dates (both inclusive comparison)
 
-Example:
-new Date(2, 4, 2018).between(new Date(1, 4, 2018), new Date(2, 4, 2018))
-==> Answers true
-day () native
-Answers the day number of the Date
 
-Example:
-new Date(12, 7, 2019).day() ==> Answers 12
-dayOfWeek () native
-Answers the day of week of the Date, where
-1 = MONDAY
-2 = TUESDAY
-3 = WEDNESDAY
-...
-7 = SUNDAY
 
-Example:
-new Date(24, 2, 2018).dayOfWeek() ==> Answers 6 (SATURDAY)
-initialize (_day, _month, _year) native
-private
-isLeapYear () native
-Checks if the year is a leap year, like 2000, 2004, 2008...
 
-Example:
-new Date(12, 5, 2018).isLeapYear() ==> Answers false
-minusDays (_days) native
-Answers a copy of this date with the specified number of days subtracted.
-This instance is immutable and unaffected by this method call.
-Parameter must be an integer value.
-This operation has no side effect (a new date is returned).
-
-Examples:
-new Date(1, 1, 2009).minusDays(1)
-==> Answers a Date[day = 31, month = 12, year = 2008], a day back
-
-new Date(1, 1, 2009).minusDays(-1)
-==> Answers a Date[day = 2, month = 1, year = 2009], a day forward
-minusMonths (_months) native
-Answers a copy of this date with the specified number of months subtracted.
-Parameter must be an integer value.
-This operation has no side effect (a new date is returned).
-
-Examples:
-new Date(1, 1, 2009).minusMonths(1)
-==> Answers a Date[day = 1, month = 12, year = 2008], a month back
-
-new Date(1, 1, 2009).minusMonths(-1)
-==> Answers a Date[day = 1, month = 2, year = 2009], a month forward
-minusYears (_years) native
-Answers a copy of this date with the specified number of years subtracted.
-Parameter must be an integer value.
-This operation has no side effect (a new date is returned).
-
-Examples:
-new Date(1, 1, 2009).minusYears(1)
-==> Answers a Date[day = 1, month = 1, year = 2008], a year back
-
-new Date(1, 1, 2009).minusYears(-1)
-==> Answers a Date[day = 1, month = 1, year = 2010], a year forward
-month () native
-Answers the month number of the Date
-
-Example:
-new Date(12, 7, 2019).month() ==> Answers 7
-plusDays (_days) native
-Answers a copy of this Date with the specified number of days added.
-Parameter must be an integer value.
-This operation has no side effect (a new date is returned).
-
-Example:
-new Date(12, 5, 2018).plusDays(1)
-==> Answers a Date[day = 13, month = 5, year = 2018], a day forward
-
-new Date(12, 5, 2018).plusDays(-1)
-==> Answers a Date[day = 11, month = 5, year = 2018], a day back
-plusMonths (_months) native
-Answers a copy of this Date with the specified number of months added.
-Parameter must be an integer value.
-This operation has no side effect (a new date is returned).
-
-Example:
-new Date(31, 1, 2018).plusMonths(1)
-==> Answers a Date[day = 28, month = 2, year = 2018], a month forward
-
-new Date(12, 5, 2018).plusMonths(-1)
-==> Answers a Date[day = 12, month = 4, year = 2018], a month back
-plusYears (_years) native
-Answers a copy of this Date with the specified number of years added.
-Parameter must be an integer value.
-This operation has no side effect (a new date is returned).
-
-Example:
-new Date(31, 1, 2018).plusYears(1)
-==> Answers a Date[day = 31, month = 1, year = 2019], a year forward
-
-new Date(12, 5, 2018).plusYears(-1)
-==> Answers a Date[day = 12, month = 5, year = 2017], a year back
-toSmartString (alreadyShown)	Shows nicely an internal representation of a date
-toString ()	String representation of a date
-year () native
-Answers the year number of the Date
-
-Example:
-new Date(12, 7, 2019).year() ==> Answers 2019
+	method plusfechaD(f, val){
+		return f.plusDays(val)
+	}//retorna una fecha, con los dias alterado dependiendo del signo del parametro
+	method plusfechaM(f, val){
+		return f.plusMonths(val)
+	}//retorna una fecha, con el mes alterado dependiendo del signo del parametro
+	method plusFechaA(f, val){
+		return f.plusYears(val)
+	}//retorna una fecha, con el año alterado dependiendo del signo del parametro
+	
+	method queDia(f){
+		return f.day()
+	}//retorna el dia de la fecha
+	method queMes(f){
+		return f.month()
+	}//retorna el mes de la fecha
+	method queAño(f){
+		return f.year()
+	}//retorna el año de la fecha
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
