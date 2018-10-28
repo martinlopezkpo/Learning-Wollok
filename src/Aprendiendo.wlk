@@ -1,7 +1,8 @@
-//construccion de un objeto
-//object mi_objecto{
-//	variables, metodos y demas...
-//}
+/*construccion de un objeto
+object mi_objecto{
+	variables, metodos y demas...
+}*/
+
 object jugarConNum{
 	var a = 0
 	var b = 0
@@ -74,9 +75,10 @@ object jugarConStrings{
 	method queondaWey() {return comoestas}
 	method concat() {return string3}
 }
-object jugarConFechas{
+object unaFecha{
 	const hoy = new Date()
 	const unDiaCualquiera = new Date(30, 6, 1973)
+	
 
 - (_aDate) native
 Answers the difference in days between two dates, assuming self is minuend and _aDate is subtrahend.
