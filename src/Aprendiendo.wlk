@@ -79,23 +79,26 @@ object unaFecha{
 	const hoy = new Date()
 	const unDiaCualquiera = new Date(30, 6, 1973)
 	
-	method restarFecha(f1, f2)
-	{	return f1 - f2
+	method restarFecha(f1, f2){
+		return f1 - f2
 	}//retorna la diferencia en dias, de dos fechas.
 
 	method fechasIguales(f1, f2){
 		return f1 == f2
 	}//igualdad de fechas
+	
 	method fechaEntreDosFechas(f1, f2, f3){
 		return f1.between(f2, f3)
 	}//una fecha entre intervalo de fechas
+	
 	method diaDeLaSemana(f){
 		return f.dayOfWeek()
 	}//retorna el dia de la semana q corresponde al dia de la fecha... 1(lunes) a 7(sabado)
+	
 	method esBisiesto(f){
 		return f.isLeapYear()
 	}//verifica si es año bisiesto
-	
+
 	method minusFechaD(f, val){
 		f.minusDays(val)
 	}
@@ -106,10 +109,6 @@ object unaFecha{
 		f.minusYears(val)
 	}
 
-
-
-
-
 	method plusfechaD(f, val){
 		return f.plusDays(val)
 	}//retorna una fecha, con los dias alterado dependiendo del signo del parametro
@@ -119,20 +118,17 @@ object unaFecha{
 	method plusFechaA(f, val){
 		return f.plusYears(val)
 	}//retorna una fecha, con el año alterado dependiendo del signo del parametro
-	
+
 	method queDia(f){
 		return f.day()
 	}//retorna el dia de la fecha
 	method queMes(f){
 		return f.month()
 	}//retorna el mes de la fecha
-	method queAño(f){
+	method queYear(f){
 		return f.year()
 	}//retorna el año de la fecha
 }
-
-
-
 
 object miObjeto{
 	
