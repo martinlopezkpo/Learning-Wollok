@@ -170,3 +170,47 @@ object miObjeto{
 	method MostrarMiVar() 			{ return miVariable }
 	method MostrarMiBool() 			{ return miVarBool }
 }
+
+/*consepto PROPERTY
+Una propiedad en Wollok permite explicitar un contrato específico para una referencia:
+si la referencia es variable (var), Wollok genera su getter y setter
+si la referencia es constante (const), Wollok genera el getter
+
+MODELAMOS UN AUTO CUALQUIERA
+
+object AUTO {
+ 	var color
+ 	var kilometraje
+ 	var conAire = false
+     	const patente = "RVM 363"
+ 	const anioPatentamiento = 1979
+ 	
+ 	method patente() = patente
+ 	method anioPatentamiento() = anioPatentamiento
+ 	method conAire() = conAire
+ 	method conAire(_conAire) { conAire = _conAire }
+ 	method color() = color
+ 	method color(_color) { color = _color }
+ 	method kilometraje() = kilometraje
+ 	method realizarViaje(kilometros) {
+      	kilometraje = kilometraje + kilometros
+ 	}
+}
+
+QUEDARIA REMODELADO DE LA FORMA
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
